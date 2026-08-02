@@ -84,7 +84,36 @@
   .msg{min-height:28px;margin-top:18px;font-weight:700;}
   .msg.good{color:#2C6E49;}
   .msg.bad{color:var(--red);}
+  .share-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+  .share-btn{
+    display:flex;align-items:center;gap:6px;
+    padding:8px 16px;border-radius:20px;
+    background:rgba(227,168,87,0.14);color:var(--amber);
+    text-decoration:none;font-size:0.82rem;font-weight:700;
+    border:1px solid rgba(227,168,87,0.3);cursor:pointer;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .share-btn:hover{background:rgba(227,168,87,0.24);}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Word Scramble",
+  "url": "https://knownlook.com/word-scramble.html",
+  "description": "Unscramble the letters and guess the word. New puzzle every round, free to play, no sign-up required.",
+  "genre": "Puzzle, Word Game",
+  "applicationCategory": "Game",
+  "operatingSystem": "Any (Web Browser)",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": { "@type": "Organization", "name": "Idle Hands Arcade" }
+}
+</script>
 </head>
 <body>
 <div class="top">
@@ -112,6 +141,14 @@
   </div>
 
   <p style="text-align:left;opacity:0.7;font-size:0.9rem;line-height:1.6;margin-top:32px;">Word scrambles have been a staple of newspaper puzzle pages for generations, prized because they're quick enough for a coffee break but tricky enough to actually make you think. This version pulls from a rotating list of everyday words, each with a short hint, so you can play a few rounds back to back without seeing the same word twice in a row.</p>
+
+  <div class="share-row">
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Play%20Word%20Scramble%20free%20at%20Idle%20Hands%20Arcade&url=https://knownlook.com/word-scramble.html" target="_blank" rel="noopener">Share on X</a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://knownlook.com/word-scramble.html" target="_blank" rel="noopener">Share on Facebook</a>
+    <a class="share-btn" href="https://wa.me/?text=Play%20Word%20Scramble%20free%20at%20Idle%20Hands%20Arcade%20https://knownlook.com/word-scramble.html" target="_blank" rel="noopener">Share on WhatsApp</a>
+    <a class="share-btn" href="mailto:?subject=Play%20Word%20Scramble%20free%20at%20Idle%20Hands%20Arcade&body=https://knownlook.com/word-scramble.html">Email</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://knownlook.com/word-scramble.html').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',1500);})">Copy Link</button>
+  </div>
 </main>
 
 <footer style="text-align:center;padding:24px;font-size:0.8rem;opacity:0.55;border-top:1px solid var(--line);margin-top:20px;">

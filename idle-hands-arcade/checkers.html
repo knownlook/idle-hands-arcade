@@ -102,7 +102,36 @@
   }
   button.action:active{transform:translateY(2px);box-shadow:none;}
   .msg{min-height:28px;margin-top:18px;font-weight:700;color:var(--amber);}
+  .share-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+  .share-btn{
+    display:flex;align-items:center;gap:6px;
+    padding:8px 16px;border-radius:20px;
+    background:rgba(227,168,87,0.14);color:var(--amber);
+    text-decoration:none;font-size:0.82rem;font-weight:700;
+    border:1px solid rgba(227,168,87,0.3);cursor:pointer;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .share-btn:hover{background:rgba(227,168,87,0.24);}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Checkers",
+  "url": "https://knownlook.com/checkers.html",
+  "description": "Play checkers with a friend on the same screen. Free, no account, no download — just open and play.",
+  "genre": "Board Game",
+  "applicationCategory": "Game",
+  "operatingSystem": "Any (Web Browser)",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": { "@type": "Organization", "name": "Idle Hands Arcade" }
+}
+</script>
 </head>
 <body>
 <div class="top">
@@ -128,6 +157,14 @@
   <div class="msg" id="msg"></div>
 
   <p style="text-align:left;opacity:0.7;font-size:0.9rem;line-height:1.6;margin-top:32px;">Checkers is one of the oldest board games still widely played today, with roots going back centuries before chess took its modern form. Its lasting appeal comes from a rare mix: the rules take a minute to learn, but real strategy takes years to master. This version keeps things simple and local — no accounts, just two people and one board.</p>
+
+  <div class="share-row">
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Play%20Checkers%20free%20at%20Idle%20Hands%20Arcade&url=https://knownlook.com/checkers.html" target="_blank" rel="noopener">Share on X</a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://knownlook.com/checkers.html" target="_blank" rel="noopener">Share on Facebook</a>
+    <a class="share-btn" href="https://wa.me/?text=Play%20Checkers%20free%20at%20Idle%20Hands%20Arcade%20https://knownlook.com/checkers.html" target="_blank" rel="noopener">Share on WhatsApp</a>
+    <a class="share-btn" href="mailto:?subject=Play%20Checkers%20free%20at%20Idle%20Hands%20Arcade&body=https://knownlook.com/checkers.html">Email</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://knownlook.com/checkers.html').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',1500);})">Copy Link</button>
+  </div>
 </main>
 
 <footer style="text-align:center;padding:24px;font-size:0.8rem;opacity:0.55;border-top:1px solid var(--line);margin-top:20px;">
