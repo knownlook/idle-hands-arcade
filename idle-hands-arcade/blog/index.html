@@ -3,81 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog – Tips, Strategy & Game Guides | Idle Hands Arcade</title>
-<meta name="description" content="Tips, strategy guides, and game history for sudoku, checkers, word scramble, and sliding puzzles.">
-<link rel="canonical" href="https://knownlook.com/blog/">
+<title>Idle Hands Arcade – Free Online Games, No Sign-Up</title>
+<meta name="description" content="Play free word scramble, sudoku, sliding puzzle, and checkers instantly. No account, no download, no wait.">
+<meta property="og:title" content="Idle Hands Arcade – Free Online Games">
+<meta property="og:description" content="Word scramble, sudoku, sliding puzzle, and checkers. No sign-up, play instantly.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://knownlook.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Idle Hands Arcade",
+  "url": "https://knownlook.com/",
+  "description": "Free online word scramble, sudoku, sliding puzzle, and checkers. No sign-up, play instantly.",
+  "publisher": { "@type": "Organization", "name": "Idle Hands Arcade" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "url": "https://knownlook.com/word-scramble.html", "name": "Word Scramble"},
+    {"@type": "ListItem", "position": 2, "url": "https://knownlook.com/sudoku.html", "name": "Sudoku"},
+    {"@type": "ListItem", "position": 3, "url": "https://knownlook.com/sliding-puzzle.html", "name": "Sliding Puzzle"},
+    {"@type": "ListItem", "position": 4, "url": "https://knownlook.com/checkers.html", "name": "Checkers"}
+  ]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231B4332%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 text-anchor=%22middle%22>🎲</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{ --felt:#1B4332; --cream:#F4EFE1; --ink:#22271F; --amber:#E3A857; --line:rgba(244,239,225,0.14); }
+  :root{
+    --felt:#1B4332;
+    --felt-dark:#123024;
+    --cream:#F4EFE1;
+    --ink:#22271F;
+    --amber:#E3A857;
+    --red:#C1443D;
+    --line:rgba(244,239,225,0.14);
+  }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--felt);color:var(--cream);font-family:'Space Grotesk',sans-serif;min-height:100vh;}
-  .top{padding:20px 24px;border-bottom:1px solid var(--line);}
-  .top a{color:var(--cream);opacity:0.7;text-decoration:none;font-size:0.9rem;}
-  header{padding:48px 24px 8px;text-align:center;}
-  h1{font-family:'Fraunces', serif;font-weight:700;font-size:clamp(2rem, 5vw, 3rem);margin:0 0 10px;}
-  header p{opacity:0.75;max-width:480px;margin:0 auto;}
-  .posts{max-width:700px;margin:0 auto;padding:48px 24px 80px;display:flex;flex-direction:column;gap:20px;}
-  .post-card{
-    background:var(--cream);color:var(--ink);border-radius:8px;
-    padding:24px 26px;text-decoration:none;display:block;
-    box-shadow:0 8px 0 rgba(0,0,0,0.16);
-    transition:transform 0.12s ease;
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(227,168,87,0.08), transparent 40%),
+      var(--felt);
+    color:var(--cream);
+    font-family:'Space Grotesk', sans-serif;
+    min-height:100vh;
   }
-  .post-card:hover{transform:translateY(-3px);}
-  .post-tag{
-    display:inline-block;font-size:0.7rem;font-weight:700;text-transform:uppercase;
-    letter-spacing:0.05em;color:var(--felt);background:rgba(27,67,50,0.1);
-    padding:3px 10px;border-radius:20px;margin-bottom:10px;
+  header{
+    padding:64px 24px 32px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
   }
-  .post-card h2{font-family:'Fraunces',serif;font-size:1.3rem;margin:0 0 8px;}
-  .post-card p{margin:0;font-size:0.9rem;opacity:0.75;line-height:1.5;}
-  footer{text-align:center;padding:24px;font-size:0.8rem;opacity:0.55;border-top:1px solid var(--line);}
-  footer a{color:var(--cream);opacity:0.8;margin:0 8px;text-decoration:none;}
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:clamp(2.2rem, 6vw, 3.6rem);
+    margin:0 0 12px;
+    letter-spacing:-0.02em;
+  }
+  header p{
+    max-width:480px;
+    margin:0 auto;
+    opacity:0.75;
+    font-size:1.05rem;
+    line-height:1.5;
+  }
+  .grid{
+    max-width:960px;
+    margin:0 auto;
+    padding:56px 24px 80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+    gap:28px;
+  }
+  .box{
+    position:relative;
+    background:var(--cream);
+    color:var(--ink);
+    border-radius:6px;
+    padding:28px 20px 22px;
+    text-decoration:none;
+    display:block;
+    box-shadow:0 10px 0 rgba(0,0,0,0.18);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .box:hover{
+    transform:translateY(-4px) rotate(-1deg);
+    box-shadow:0 14px 0 rgba(0,0,0,0.2);
+  }
+  .box:nth-child(even):hover{ transform:translateY(-4px) rotate(1deg); }
+  .sticker{
+    position:absolute;
+    top:-10px; right:-10px;
+    background:var(--amber);
+    color:var(--ink);
+    font-size:0.68rem;
+    font-weight:700;
+    padding:6px 10px;
+    border-radius:50%;
+    width:52px; height:52px;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    line-height:1.1;
+    transform:rotate(8deg);
+    box-shadow:0 3px 0 rgba(0,0,0,0.15);
+  }
+  .box h2{
+    font-family:'Fraunces', serif;
+    font-size:1.5rem;
+    margin:8px 0 6px;
+  }
+  .box p{
+    margin:0;
+    font-size:0.9rem;
+    opacity:0.7;
+    line-height:1.4;
+  }
+  .glyph{
+    font-size:2.2rem;
+    line-height:1;
+  }
+  footer{
+    text-align:center;
+    padding:24px;
+    font-size:0.8rem;
+    opacity:0.55;
+    border-top:1px solid var(--line);
+  }
 </style>
 </head>
 <body>
-<div class="top"><a href="../index.html">&larr; back to arcade</a></div>
 <header>
-  <h1>Tips &amp; Guides</h1>
-  <p>Strategy, history, and a few tricks for the games on Idle Hands Arcade.</p>
+  <h1>Bored? Play something.</h1>
+  <p>Four quick games, zero sign-ups, zero waiting. Pick one and go.</p>
 </header>
 
-<div class="posts">
-  <a class="post-card" href="sudoku-tips-for-beginners.html">
-    <span class="post-tag">Sudoku</span>
-    <h2>Sudoku Tips for Beginners: Solve Without Guessing</h2>
-    <p>The handful of logic techniques that get you through almost any easy or medium puzzle without ever having to guess.</p>
+<div class="grid">
+  <a class="box" href="word-scramble.html">
+    <span class="sticker">NEW<br>WORD</span>
+    <div class="glyph">🔤</div>
+    <h2>Word Scramble</h2>
+    <p>Unscramble the letters before you run out of guesses.</p>
   </a>
 
-  <a class="post-card" href="checkers-strategy-basics.html">
-    <span class="post-tag">Checkers</span>
-    <h2>Checkers Strategy Basics: Control the Center, Protect the Back Row</h2>
-    <p>Simple, high-impact rules that separate a beginner from someone who wins consistently.</p>
+  <a class="box" href="sudoku.html">
+    <span class="sticker">9×9</span>
+    <div class="glyph">🔢</div>
+    <h2>Sudoku</h2>
+    <p>Classic number grid. Three puzzles, easy to hard.</p>
   </a>
 
-  <a class="post-card" href="word-scramble-brain-benefits.html">
-    <span class="post-tag">Word Scramble</span>
-    <h2>Why Word Scramble Games Are Good for Your Brain</h2>
-    <p>What's actually happening in your head when you unscramble a word, and why puzzle breaks help focus.</p>
+  <a class="box" href="sliding-puzzle.html">
+    <span class="sticker">15<br>TILE</span>
+    <div class="glyph">🧩</div>
+    <h2>Sliding Puzzle</h2>
+    <p>Slide the tiles back into order, 1 through 15.</p>
   </a>
 
-  <a class="post-card" href="sliding-puzzle-solving-strategy.html">
-    <span class="post-tag">Sliding Puzzle</span>
-    <h2>Sliding Puzzle Strategy: Solve the 15 Puzzle in Fewer Moves</h2>
-    <p>A row-by-row method for solving faster, plus why some starting layouts can never be solved.</p>
-  </a>
-
-  <a class="post-card" href="best-games-for-work-breaks.html">
-    <span class="post-tag">Guide</span>
-    <h2>The Best Free Games for a Quick Work Break</h2>
-    <p>Which game fits a 2-minute break versus a 15-minute one, and why low-friction games beat scrolling.</p>
+  <a class="box" href="checkers.html">
+    <span class="sticker">2P</span>
+    <div class="glyph">⚫</div>
+    <h2>Checkers</h2>
+    <p>Two-player, same screen. Jump and capture to win.</p>
   </a>
 </div>
 
 <footer>
-  <a href="../index.html">Home</a> · <a href="../about.html">About</a> · <a href="index.html">Blog</a> · <a href="../privacy-policy.html">Privacy Policy</a> · <a href="../contact.html">Contact</a>
+  Idle Hands Arcade — built for killing five spare minutes.<br>
+  <a href="index.html" style="color:var(--cream);opacity:0.8;">Home</a> ·
+  <a href="about.html" style="color:var(--cream);opacity:0.8;">About</a> ·
+  <a href="blog/index.html" style="color:var(--cream);opacity:0.8;">Blog</a> ·
+  <a href="privacy-policy.html" style="color:var(--cream);opacity:0.8;">Privacy Policy</a> ·
+  <a href="contact.html" style="color:var(--cream);opacity:0.8;">Contact</a>
 </footer>
 </body>
 </html>
