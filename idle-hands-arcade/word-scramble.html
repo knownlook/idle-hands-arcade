@@ -94,6 +94,14 @@
     font-family:'Space Grotesk',sans-serif;
   }
   .share-btn:hover{background:rgba(227,168,87,0.24);}
+  .reset-row{text-align:center;padding:8px 24px 0;}
+  .reset-btn{
+    background:none;border:1px solid rgba(244,239,225,0.25);
+    color:var(--cream);opacity:0.55;font-size:0.75rem;
+    padding:5px 14px;border-radius:14px;cursor:pointer;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .reset-btn:hover{opacity:1;border-color:var(--amber);color:var(--amber);}
 </style>
 <script type="application/ld+json">
 {
@@ -123,6 +131,7 @@
     <div class="score-pill teal"><span class="num" id="skippedNum">0</span><span class="label">Skipped</span></div>
   </div>
 </div>
+<div class="reset-row"><button class="reset-btn" onclick="resetScore()">&#8635; Reset Score</button></div>
 <main>
   <h1>Word Scramble</h1>
   <p class="sub">Unscramble the letters. Press Enter or tap Check.</p>
@@ -181,6 +190,230 @@ const WORDS = [
   ["rocket","travels to space"],
   ["shadow","appears when light is blocked"],
   ["turtle","a slow shelled animal"],
+  ["garden","where flowers and vegetables grow"],
+  ["bridge","crosses a river or gap"],
+  ["castle","home to kings and queens"],
+  ["desert","dry and sandy land"],
+  ["dragon","a mythical fire-breathing creature"],
+  ["eagle","a large bird of prey"],
+  ["fabric","material used for clothing"],
+  ["galaxy","a huge collection of stars"],
+  ["hammer","used to drive in nails"],
+  ["jacket","worn to stay warm"],
+  ["kitten","a baby cat"],
+  ["lemon","a sour yellow fruit"],
+  ["mountain","a very tall landform"],
+  ["needle","used for sewing"],
+  ["ocean","a vast body of salt water"],
+  ["pepper","a spicy seasoning"],
+  ["quiet","making very little noise"],
+  ["rabbit","a small hopping animal"],
+  ["saddle","sits on a horse's back"],
+  ["temple","a place of worship"],
+  ["umbrella","keeps you dry in rain"],
+  ["violin","a small stringed instrument played with a bow"],
+  ["walnut","a hard-shelled nut"],
+  ["yogurt","a creamy dairy food"],
+  ["zigzag","a sharp back-and-forth pattern"],
+  ["anchor","keeps a ship in place"],
+  ["bakery","sells fresh bread and pastries"],
+  ["cactus","a spiky desert plant"],
+  ["dolphin","a smart sea mammal"],
+  ["feather","covers a bird's body"],
+  ["giraffe","the tallest land animal"],
+  ["harbor","where ships dock"],
+  ["igloo","a house made of snow"],
+  ["jungle","a dense tropical forest"],
+  ["kettle","boils water"],
+  ["lizard","a small scaly reptile"],
+  ["marble","a smooth round stone or toy"],
+  ["napkin","wipes your mouth at dinner"],
+  ["olive","a small oily fruit"],
+  ["parrot","a colorful talking bird"],
+  ["quartz","a common crystal mineral"],
+  ["raisin","a dried grape"],
+  ["tunnel","a passage through a hill or under ground"],
+  ["unicorn","a mythical horned horse"],
+  ["velvet","a soft smooth fabric"],
+  ["wallet","holds your cash and cards"],
+  ["xylophone","a musical instrument with bars"],
+  ["yellow","the color of a lemon"],
+  ["zephyr","a gentle breeze"],
+  ["almond","a common tree nut"],
+  ["bottle","holds liquid"],
+  ["cheese","made from milk"],
+  ["dinner","the evening meal"],
+  ["elbow","the joint in your arm"],
+  ["finger","used for pointing"],
+  ["goggle","protects your eyes underwater"],
+  ["helmet","protects your head"],
+  ["insect","a small six-legged creature"],
+  ["jigsaw","a puzzle with interlocking pieces"],
+  ["kidney","an organ that filters blood"],
+  ["lantern","a portable light source"],
+  ["mammal","a warm-blooded animal with fur"],
+  ["oyster","can produce a pearl"],
+  ["pillow","cushions your head at night"],
+  ["quiver","holds arrows"],
+  ["ribbon","a decorative strip of fabric"],
+  ["saucer","sits under a teacup"],
+  ["thistle","a spiky purple flower"],
+  ["uphill","going up a slope"],
+  ["vanilla","a common baking flavor"],
+  ["wisdom","deep knowledge and good judgment"],
+  ["yearly","happening once a year"],
+  ["zodiac","astrological signs based on birth date"],
+  ["apricot","a small orange fruit"],
+  ["balcony","an outdoor platform on a building"],
+  ["cabinet","stores dishes or supplies"],
+  ["emerald","a green gemstone"],
+  ["fossil","preserved remains of ancient life"],
+  ["gravity","pulls objects toward earth"],
+  ["horizon","where the sky meets the land"],
+  ["ivory","material from an elephant's tusk"],
+  ["jasmine","a fragrant flowering plant"],
+  ["kayak","a small paddled boat"],
+  ["meadow","an open grassy field"],
+  ["nectar","sweet liquid from flowers"],
+  ["orchard","a farm of fruit trees"],
+  ["pyramid","an ancient triangular structure"],
+  ["quicksand","loose wet sand that traps you"],
+  ["rainbow","colorful arc in the sky after rain"],
+  ["sapphire","a blue gemstone"],
+  ["thunder","the sound after lightning"],
+  ["utensil","a tool for eating"],
+  ["volcano","a mountain that can erupt"],
+  ["whisper","speaking very quietly"],
+  ["yardstick","measures three feet"],
+  ["zeppelin","a large airship"],
+  ["archery","the sport of shooting arrows"],
+  ["blanket","keeps you warm in bed"],
+  ["chimney","lets smoke out of a house"],
+  ["diamond","the hardest natural gemstone"],
+  ["elephant","the largest land animal"],
+  ["firefly","a bug that glows at night"],
+  ["harmony","pleasant combination of sounds"],
+  ["iceberg","a huge floating chunk of ice"],
+  ["journey","a long trip"],
+  ["kingdom","land ruled by a king or queen"],
+  ["leopard","a spotted big cat"],
+  ["marbles","small glass balls used in games"],
+  ["nursery","a room for a baby"],
+  ["octopus","a sea creature with eight arms"],
+  ["penguin","a flightless swimming bird"],
+  ["quartet","a group of four musicians"],
+  ["raccoon","a masked nocturnal animal"],
+  ["sailboat","a boat powered by wind"],
+  ["teacup","a small cup for tea"],
+  ["upgrade","a better version of something"],
+  ["vintage","from an earlier era"],
+  ["whistle","makes a high-pitched sound"],
+  ["blossom","a flower on a tree"],
+  ["cascade","a small waterfall"],
+  ["dazzle","to impress with brightness"],
+  ["echoing","sound bouncing back"],
+  ["firewood","wood burned for heat"],
+  ["glimmer","a faint flash of light"],
+  ["hibiscus","a large tropical flower"],
+  ["inkwell","holds ink for a pen"],
+  ["jester","a court entertainer"],
+  ["kimono","a traditional Japanese robe"],
+  ["lighthouse","guides ships at night"],
+  ["moonlit","lit by the moon"],
+  ["notebook","used for writing notes"],
+  ["obelisk","a tall four-sided stone pillar"],
+  ["padlock","secures a door or gate"],
+  ["quilted","stitched with padded layers"],
+  ["ripple","a small wave"],
+  ["sunrise","when the sun comes up"],
+  ["teardrop","shaped like a falling tear"],
+  ["utopia","an imagined perfect place"],
+  ["valley","low land between hills"],
+  ["windmill","turns wind into power"],
+  ["acrobat","performs gymnastic stunts"],
+  ["blizzard","a severe snowstorm"],
+  ["compass","points to magnetic north"],
+  ["emperor","the ruler of an empire"],
+  ["falcon","a fast hunting bird"],
+  ["gazelle","a fast graceful animal"],
+  ["harvest","gathering ripe crops"],
+  ["journal","a personal diary"],
+  ["knuckle","a joint in your finger"],
+  ["legend","a traditional story"],
+  ["meteor","a shooting star"],
+  ["nomad","a person without a fixed home"],
+  ["oasis","a green spot in a desert"],
+  ["prairie","a large open grassland"],
+  ["reindeer","pulls Santa's sleigh"],
+  ["tornado","a violently spinning storm"],
+  ["universe","everything that exists"],
+  ["village","a small community"],
+  ["warrior","a skilled fighter"],
+  ["almanac","a yearly reference book"],
+  ["citadel","a fortress protecting a city"],
+  ["dewdrop","a small drop of morning dew"],
+  ["estuary","where a river meets the sea"],
+  ["fjord","a narrow sea inlet"],
+  ["glacier","a huge slow-moving ice mass"],
+  ["hamster","a small furry pet"],
+  ["infinity","never-ending"],
+  ["jubilee","a special anniversary celebration"],
+  ["kernel","the seed inside a shell"],
+  ["labyrinth","a complex maze"],
+  ["mermaid","a mythical sea creature"],
+  ["nightfall","when darkness begins"],
+  ["origami","the art of paper folding"],
+  ["phantom","a ghostly figure"],
+  ["quicklime","a chemical used in construction"],
+  ["rustling","a soft crackling sound"],
+  ["scepter","a rod carried by royalty"],
+  ["thatched","roofed with straw"],
+  ["undertow","a strong pull beneath waves"],
+  ["vortex","a whirling mass of air or water"],
+  ["wanderer","someone who travels without a fixed path"],
+  ["bramble","a thorny bush"],
+  ["cavern","a large underground cave"],
+  ["driftwood","wood washed ashore"],
+  ["frostbite","skin damage from extreme cold"],
+  ["grotto","a small picturesque cave"],
+  ["hearthside","the area near a fireplace"],
+  ["icicle","a hanging spike of ice"],
+  ["junction","where roads or paths meet"],
+  ["knapsack","a small backpack"],
+  ["meander","to wander slowly and aimlessly"],
+  ["nomadic","moving from place to place"],
+  ["outpost","a small remote settlement"],
+  ["pinnacle","the highest point"],
+  ["quandary","a state of uncertainty"],
+  ["ravine","a deep narrow gorge"],
+  ["solitude","the state of being alone"],
+  ["thicket","a dense group of bushes"],
+  ["undulate","to move in a wave-like motion"],
+  ["vagabond","a wanderer with no home"],
+  ["wildfire","an uncontrolled fire in nature"],
+  ["acorn","the nut of an oak tree"],
+  ["beacon","a guiding light or signal"],
+  ["cobweb","a spider's web"],
+  ["dandelion","a common yellow weed"],
+  ["evergreen","a tree that stays green year-round"],
+  ["foghorn","warns ships in fog"],
+  ["gargoyle","a carved stone figure on a building"],
+  ["hummingbird","a tiny fast-flying bird"],
+  ["inkling","a slight suspicion"],
+  ["jamboree","a large festive gathering"],
+  ["keepsake","an item kept for its memories"],
+  ["lullaby","a soothing song for sleep"],
+  ["mosaic","a picture made of small pieces"],
+  ["nutshell","the hard covering of a nut"],
+  ["oakleaf","the leaf of an oak tree"],
+  ["pebbles","small smooth stones"],
+  ["quibble","a minor complaint"],
+  ["riverbank","the land beside a river"],
+  ["scarecrow","protects crops from birds"],
+  ["treasure","valuable hidden riches"],
+  ["upstream","against the current"],
+  ["velveteen","a fabric similar to velvet"],
+  ["wishbone","a forked bone in a bird"],
 ];
 
 let current;
@@ -198,8 +431,23 @@ function scrambleWord(w){
   return arr.join("");
 }
 
+let wordBag = [];
+
+function refillBag(excludeWord){
+  wordBag = WORDS.map((_, i) => i);
+  for(let i = wordBag.length-1; i > 0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [wordBag[i], wordBag[j]] = [wordBag[j], wordBag[i]];
+  }
+  if(excludeWord !== undefined && wordBag.length > 1 && WORDS[wordBag[wordBag.length-1]][0] === excludeWord){
+    [wordBag[wordBag.length-1], wordBag[wordBag.length-2]] = [wordBag[wordBag.length-2], wordBag[wordBag.length-1]];
+  }
+}
+
 function nextWord(){
-  current = WORDS[Math.floor(Math.random()*WORDS.length)];
+  if(wordBag.length === 0) refillBag(current ? current[0] : undefined);
+  const idx = wordBag.pop();
+  current = WORDS[idx];
   document.getElementById("scramble").textContent = scrambleWord(current[0]).toUpperCase();
   document.getElementById("hint").textContent = "hint: " + current[1];
   document.getElementById("guess").value = "";
@@ -238,6 +486,13 @@ document.getElementById("skipBtn").addEventListener("click", () => { skipped++; 
 
 updateScore();
 nextWord();
+function resetScore(){
+  if(!confirm("Reset your Word Scramble score back to zero?")) return;
+  solved = 0; skipped = 0;
+  localStorage.removeItem("ws_solved");
+  localStorage.removeItem("ws_skipped");
+  updateScore();
+}
 </script>
 </body>
 </html>
