@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sliding Puzzle Strategy: Solve the 15 Puzzle in Fewer Moves</title>
+<meta name="description" content="A simple row-by-row method for solving the classic 15 sliding puzzle efficiently, plus why some starting positions can never be solved.">
+<link rel="canonical" href="https://knownlook.com/blog/sliding-puzzle-solving-strategy.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231B4332%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 text-anchor=%22middle%22>🧩</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --felt:#1B4332; --cream:#F4EFE1; --ink:#22271F; --amber:#E3A857; --line:rgba(244,239,225,0.14); }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--felt);color:var(--cream);font-family:'Space Grotesk',sans-serif;min-height:100vh;}
+  .top{padding:20px 24px;border-bottom:1px solid var(--line);}
+  .top a{color:var(--cream);opacity:0.7;text-decoration:none;font-size:0.9rem;}
+  article{max-width:640px;margin:0 auto;padding:48px 24px 40px;}
+  .post-tag{display:inline-block;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--amber);margin-bottom:14px;}
+  h1{font-family:'Fraunces',serif;font-size:clamp(1.8rem,5vw,2.4rem);margin:0 0 20px;line-height:1.2;}
+  h2{font-family:'Fraunces',serif;font-size:1.25rem;margin:32px 0 10px;color:var(--amber);}
+  p, li{line-height:1.75;opacity:0.92;}
+  ul, ol{padding-left:22px;}
+  .cta{background:var(--cream);color:var(--ink);border-radius:8px;padding:20px 24px;margin-top:36px;text-align:center;}
+  .cta a{display:inline-block;margin-top:10px;background:var(--felt);color:var(--cream);padding:10px 22px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.9rem;}
+  footer{text-align:center;padding:24px;font-size:0.8rem;opacity:0.55;border-top:1px solid var(--line);margin-top:20px;}
+  footer a{color:var(--cream);opacity:0.8;margin:0 8px;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="top"><a href="../blog/index.html">&larr; back to blog</a></div>
+<article>
+  <span class="post-tag">Sliding Puzzle</span>
+  <h1>Sliding Puzzle Strategy: Solve the 15 Puzzle in Fewer Moves</h1>
+
+  <p>The 15 puzzle looks like pure trial and error at first, but experienced solvers use a consistent method that works every time. Here's how to bring your move count down.</p>
+
+  <h2>Solve one row at a time, starting from the top</h2>
+  <p>Don't try to place every tile at once. Focus only on getting 1 and 2 into the top-left two spots first, ignoring everything else on the board. Once those two are locked in, move to 3 and 4, and so on. Trying to solve the whole board simultaneously is what causes most of the wasted moves.</p>
+
+  <h2>Leave the last two tiles of a row for a specific trick</h2>
+  <p>The second-to-last and last tile in a row (or column) can't just be slid directly into place — you'll often need to place them temporarily in the wrong spots one row down, then rotate them into position together. This is the single technique that separates people who "get stuck near the end" from people who don't.</p>
+
+  <h2>Solve the top rows and left columns first, then finish in an L-shape</h2>
+  <p>Once the top two rows and left two columns are done, what's left is a smaller 2x2-ish puzzle that solves the same way, just at a smaller scale. Thinking of the full grid as "shrinking" after each row keeps the problem from feeling overwhelming.</p>
+
+  <h2>Why some shuffles feel impossible — and actually are</h2>
+  <p>Not every random arrangement of a 15 puzzle can be solved. Mathematically, exactly half of all possible tile arrangements have no solution at all, no matter how many moves you make. That's not a flaw in your solving — it's built into how the puzzle works. This site's shuffle button always generates a solvable layout, so if a puzzle feels unsolvable here, it's a solving problem, not a broken puzzle.</p>
+
+  <h2>Fewer moves comes with practice, not memorization</h2>
+  <p>There's no shortcut to a low move count beyond doing the row-by-row method smoothly. Each time you solve it, you'll naturally start seeing the "L-shape edge, then shrink" pattern faster.</p>
+
+  <div class="cta">
+    <p style="margin:0;">Put the method to the test.</p>
+    <a href="../sliding-puzzle.html">Play the Sliding Puzzle Now</a>
+  </div>
+</article>
+<footer>
+  <a href="../index.html">Home</a> · <a href="../about.html">About</a> · <a href="index.html">Blog</a> · <a href="../privacy-policy.html">Privacy Policy</a> · <a href="../contact.html">Contact</a>
+</footer>
+</body>
+</html>

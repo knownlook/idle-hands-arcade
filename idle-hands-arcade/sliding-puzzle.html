@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15 Puzzle – Free Online Sliding Tile Puzzle Game</title>
+<meta name="description" content="Slide the tiles back into order from 1 to 15. A free browser version of the classic sliding puzzle.">
+<meta property="og:title" content="15 Sliding Puzzle – Idle Hands Arcade">
+<meta property="og:description" content="Slide tiles back into order, 1 through 15. Free, instant, no sign-up.">
+<link rel="canonical" href="https://knownlook.com/sliding-puzzle.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231B4332%22/><text x=%2250%22 y=%2266%22 font-size=%2256%22 text-anchor=%22middle%22>🧩</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --felt:#1B4332; --felt-dark:#123024; --cream:#F4EFE1; --ink:#22271F; --amber:#E3A857; --red:#C1443D;
+    --line:rgba(244,239,225,0.14); --teal:#4E8B8B;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--felt);color:var(--cream);font-family:'Space Grotesk',sans-serif;min-height:100vh;}
+  .top{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .top a{color:var(--cream);opacity:0.7;text-decoration:none;font-size:0.9rem;}
+  .scoreboard{display:flex;gap:10px;}
+  .score-pill{
+    display:flex;flex-direction:column;align-items:center;
+    padding:6px 16px;border-radius:8px;min-width:70px;
+  }
+  .score-pill .num{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;line-height:1;}
+  .score-pill .label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;opacity:0.85;margin-top:2px;}
+  .score-pill.amber{background:rgba(227,168,87,0.18);color:var(--amber);}
+  .score-pill.teal{background:rgba(78,139,139,0.22);color:var(--teal);}
+  main{max-width:420px;margin:0 auto;padding:40px 24px 80px;text-align:center;}
+  h1{font-family:'Fraunces',serif;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 8px;}
+  .sub{opacity:0.7;margin:0 0 24px;}
+  .howto{
+    text-align:left;
+    background:rgba(227,168,87,0.1);
+    border-left:4px solid var(--amber);
+    border-radius:6px;
+    padding:14px 18px;
+    margin-bottom:28px;
+    font-size:0.9rem;
+    line-height:1.5;
+  }
+  .howto strong{color:var(--amber);}
+  .board{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:8px;
+    background:var(--felt-dark);
+    padding:10px;
+    border-radius:10px;
+    box-shadow:0 10px 0 rgba(0,0,0,0.18);
+  }
+  .tile{
+    aspect-ratio:1;
+    background:var(--cream);
+    color:var(--ink);
+    border:none;
+    border-radius:6px;
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.6rem;
+    cursor:pointer;
+    transition:transform 0.08s ease;
+  }
+  .tile:hover{background:var(--amber);}
+  .tile:active{transform:scale(0.95);}
+  .tile.empty{background:transparent;cursor:default;box-shadow:none;}
+  .row{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap;}
+  button.action{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    padding:12px 22px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:var(--amber);
+    color:var(--ink);
+    box-shadow:0 4px 0 rgba(0,0,0,0.2);
+  }
+  button.action:active{transform:translateY(2px);box-shadow:none;}
+  .msg{min-height:28px;margin-top:18px;font-weight:700;color:var(--amber);}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="index.html">&larr; back to arcade</a>
+  <div class="scoreboard">
+    <div class="score-pill amber"><span class="num" id="bestNum">–</span><span class="label">Best</span></div>
+    <div class="score-pill teal"><span class="num" id="moves">0</span><span class="label">Moves</span></div>
+  </div>
+</div>
+<main>
+  <h1>Sliding Puzzle</h1>
+  <p class="sub">Slide tiles into the empty space to sort 1&ndash;15.</p>
+
+  <div class="howto"><strong>How to play:</strong> Click any tile next to the empty space to slide it in. Keep going until the numbers read 1 to 15 in order, left to right, top to bottom. Your best (fewest moves) is saved automatically.</div>
+
+  <div class="board" id="board"></div>
+
+  <div class="row">
+    <button class="action" onclick="shuffle()">Shuffle</button>
+  </div>
+  <div class="msg" id="msg"></div>
+
+  <p style="text-align:left;opacity:0.7;font-size:0.9rem;line-height:1.6;margin-top:32px;">The sliding tile puzzle dates back to the 1870s, when a version called the "15 Puzzle" swept the U.S. and Europe as a genuine craze. The appeal hasn't faded — it's a small, self-contained logic problem you can pick up and put down in seconds. Fewer moves means a cleaner solve, so once you've solved it a few times, try beating your own best count.</p>
+</main>
+
+<footer style="text-align:center;padding:24px;font-size:0.8rem;opacity:0.55;border-top:1px solid var(--line);margin-top:20px;">
+  <a href="index.html" style="color:var(--cream);opacity:0.8;">Home</a> ·
+  <a href="about.html" style="color:var(--cream);opacity:0.8;">About</a> ·
+  <a href="blog/index.html" style="color:var(--cream);opacity:0.8;">Blog</a> ·
+  <a href="privacy-policy.html" style="color:var(--cream);opacity:0.8;">Privacy Policy</a> ·
+  <a href="contact.html" style="color:var(--cream);opacity:0.8;">Contact</a>
+</footer>
+
+<script>
+const SIZE = 4;
+let tiles = [];
+let moves = 0;
+let best = localStorage.getItem("sp_best") ? parseInt(localStorage.getItem("sp_best"), 10) : null;
+
+function updateStats(){
+  document.getElementById("moves").textContent = moves;
+  document.getElementById("bestNum").textContent = best === null ? "–" : best;
+}
+
+function render(){
+  const board = document.getElementById("board");
+  board.innerHTML = "";
+  tiles.forEach((val, i) => {
+    const btn = document.createElement("button");
+    if(val === 0){
+      btn.className = "tile empty";
+    } else {
+      btn.className = "tile";
+      btn.textContent = val;
+      btn.onclick = () => tryMove(i);
+    }
+    board.appendChild(btn);
+  });
+}
+
+function tryMove(i){
+  const empty = tiles.indexOf(0);
+  const row = Math.floor(i / SIZE), col = i % SIZE;
+  const erow = Math.floor(empty / SIZE), ecol = empty % SIZE;
+  const adjacent = (Math.abs(row-erow) + Math.abs(col-ecol)) === 1;
+  if(adjacent){
+    [tiles[i], tiles[empty]] = [tiles[empty], tiles[i]];
+    moves++;
+    updateStats();
+    render();
+    checkWin();
+  }
+}
+
+function checkWin(){
+  const solved = tiles.every((v, i) => (i === tiles.length - 1) ? v === 0 : v === i + 1);
+  const msg = document.getElementById("msg");
+  if(solved){
+    msg.textContent = "Solved! 🎉";
+    if(best === null || moves < best){
+      best = moves;
+      localStorage.setItem("sp_best", best);
+      updateStats();
+    }
+  } else {
+    msg.textContent = "";
+  }
+}
+
+function isSolvable(arr){
+  const flat = arr.filter(v => v !== 0);
+  let inversions = 0;
+  for(let i=0;i<flat.length;i++){
+    for(let j=i+1;j<flat.length;j++){
+      if(flat[i] > flat[j]) inversions++;
+    }
+  }
+  const emptyRowFromBottom = SIZE - Math.floor(arr.indexOf(0) / SIZE);
+  if(SIZE % 2 === 0){
+    return (emptyRowFromBottom % 2 === 0) ? (inversions % 2 === 1) : (inversions % 2 === 0);
+  }
+  return inversions % 2 === 0;
+}
+
+function shuffle(){
+  do {
+    tiles = [...Array(SIZE*SIZE).keys()];
+    tiles.push(tiles.shift());
+    for(let i=tiles.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [tiles[i],tiles[j]] = [tiles[j],tiles[i]];
+    }
+  } while(!isSolvable(tiles) || tiles.every((v,i) => (i===tiles.length-1)?v===0:v===i+1));
+  moves = 0;
+  document.getElementById("msg").textContent = "";
+  updateStats();
+  render();
+}
+
+updateStats();
+shuffle();
+</script>
+</body>
+</html>

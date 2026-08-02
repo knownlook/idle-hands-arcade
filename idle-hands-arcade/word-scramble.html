@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Scramble – Free Online Word Unscrambler Game</title>
+<meta name="description" content="Unscramble the letters and guess the word. New puzzle every round, free to play, no sign-up required.">
+<meta property="og:title" content="Word Scramble – Idle Hands Arcade">
+<meta property="og:description" content="Unscramble the letters and guess the word. Free, no sign-up.">
+<link rel="canonical" href="https://knownlook.com/word-scramble.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231B4332%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 text-anchor=%22middle%22>🔤</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --felt:#1B4332; --cream:#F4EFE1; --ink:#22271F; --amber:#E3A857; --red:#C1443D;
+    --line:rgba(244,239,225,0.14); --teal:#4E8B8B;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--felt);color:var(--cream);font-family:'Space Grotesk',sans-serif;min-height:100vh;}
+  .top{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .top a{color:var(--cream);opacity:0.7;text-decoration:none;font-size:0.9rem;}
+  .scoreboard{display:flex;gap:10px;}
+  .score-pill{
+    display:flex;flex-direction:column;align-items:center;
+    padding:6px 16px;border-radius:8px;min-width:70px;
+  }
+  .score-pill .num{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;line-height:1;}
+  .score-pill .label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;opacity:0.85;margin-top:2px;}
+  .score-pill.amber{background:rgba(227,168,87,0.18);color:var(--amber);}
+  .score-pill.teal{background:rgba(78,139,139,0.22);color:var(--teal);}
+  main{max-width:520px;margin:0 auto;padding:48px 24px 80px;text-align:center;}
+  h1{font-family:'Fraunces',serif;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 8px;}
+  .sub{opacity:0.7;margin:0 0 24px;}
+  .howto{
+    text-align:left;
+    background:rgba(227,168,87,0.1);
+    border-left:4px solid var(--amber);
+    border-radius:6px;
+    padding:14px 18px;
+    margin-bottom:32px;
+    font-size:0.9rem;
+    line-height:1.5;
+  }
+  .howto strong{color:var(--amber);}
+  .card{background:var(--cream);color:var(--ink);border-radius:10px;padding:36px 24px;box-shadow:0 10px 0 rgba(0,0,0,0.18);}
+  .scramble{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(2rem,8vw,2.8rem);
+    letter-spacing:0.12em;
+    margin:0 0 8px;
+    color:var(--felt);
+  }
+  .hint{font-size:0.85rem;opacity:0.6;margin-bottom:24px;}
+  input{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.2rem;
+    padding:12px 16px;
+    width:100%;
+    max-width:280px;
+    border:2px solid var(--felt);
+    border-radius:6px;
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  input:focus{outline:2px solid var(--amber);outline-offset:2px;}
+  .row{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;}
+  button{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    padding:12px 22px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:var(--felt);
+    color:var(--cream);
+    box-shadow:0 4px 0 rgba(0,0,0,0.2);
+  }
+  button.secondary{background:transparent;color:var(--felt);border:2px solid var(--felt);box-shadow:none;}
+  button:active{transform:translateY(2px);box-shadow:none;}
+  .msg{min-height:28px;margin-top:18px;font-weight:700;}
+  .msg.good{color:#2C6E49;}
+  .msg.bad{color:var(--red);}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="index.html">&larr; back to arcade</a>
+  <div class="scoreboard">
+    <div class="score-pill amber"><span class="num" id="solvedNum">0</span><span class="label">Solved</span></div>
+    <div class="score-pill teal"><span class="num" id="skippedNum">0</span><span class="label">Skipped</span></div>
+  </div>
+</div>
+<main>
+  <h1>Word Scramble</h1>
+  <p class="sub">Unscramble the letters. Press Enter or tap Check.</p>
+
+  <div class="howto"><strong>How to play:</strong> The letters of a hidden word are shuffled above. Use the hint to help you guess, type your answer, and hit Check (or Enter). Stuck? Skip to a new word any time.</div>
+
+  <div class="card">
+    <div class="scramble" id="scramble">------</div>
+    <div class="hint" id="hint">hint: loading…</div>
+    <input id="guess" type="text" autocomplete="off" placeholder="your guess" maxlength="20">
+    <div class="row">
+      <button onclick="checkGuess()">Check</button>
+      <button class="secondary" id="skipBtn">Skip</button>
+    </div>
+    <div class="msg" id="msg"></div>
+  </div>
+
+  <p style="text-align:left;opacity:0.7;font-size:0.9rem;line-height:1.6;margin-top:32px;">Word scrambles have been a staple of newspaper puzzle pages for generations, prized because they're quick enough for a coffee break but tricky enough to actually make you think. This version pulls from a rotating list of everyday words, each with a short hint, so you can play a few rounds back to back without seeing the same word twice in a row.</p>
+</main>
+
+<footer style="text-align:center;padding:24px;font-size:0.8rem;opacity:0.55;border-top:1px solid var(--line);margin-top:20px;">
+  <a href="index.html" style="color:var(--cream);opacity:0.8;">Home</a> ·
+  <a href="about.html" style="color:var(--cream);opacity:0.8;">About</a> ·
+  <a href="blog/index.html" style="color:var(--cream);opacity:0.8;">Blog</a> ·
+  <a href="privacy-policy.html" style="color:var(--cream);opacity:0.8;">Privacy Policy</a> ·
+  <a href="contact.html" style="color:var(--cream);opacity:0.8;">Contact</a>
+</footer>
+
+<script>
+const WORDS = [
+  ["planet","a body that orbits a star"],
+  ["guitar","a stringed instrument"],
+  ["puzzle","a game that tests your brain"],
+  ["window","lets light into a room"],
+  ["candle","gives light when lit"],
+  ["forest","full of trees"],
+  ["pencil","used for writing or drawing"],
+  ["random","not following a pattern"],
+  ["sudoku","a number logic game"],
+  ["ladder","used to reach high places"],
+  ["mirror","reflects your image"],
+  ["autumn","a season of falling leaves"],
+  ["basket","holds fruit or laundry"],
+  ["engine","powers a car"],
+  ["island","land surrounded by water"],
+  ["magnet","attracts metal"],
+  ["orange","a citrus fruit"],
+  ["rocket","travels to space"],
+  ["shadow","appears when light is blocked"],
+  ["turtle","a slow shelled animal"],
+];
+
+let current;
+let solved = parseInt(localStorage.getItem("ws_solved") || "0", 10);
+let skipped = parseInt(localStorage.getItem("ws_skipped") || "0", 10);
+
+function scrambleWord(w){
+  let arr = w.split("");
+  do{
+    for(let i=arr.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]] = [arr[j],arr[i]];
+    }
+  } while(arr.join("") === w);
+  return arr.join("");
+}
+
+function nextWord(){
+  current = WORDS[Math.floor(Math.random()*WORDS.length)];
+  document.getElementById("scramble").textContent = scrambleWord(current[0]).toUpperCase();
+  document.getElementById("hint").textContent = "hint: " + current[1];
+  document.getElementById("guess").value = "";
+  document.getElementById("msg").textContent = "";
+  document.getElementById("msg").className = "msg";
+  document.getElementById("guess").focus();
+}
+
+function updateScore(){
+  document.getElementById("solvedNum").textContent = solved;
+  document.getElementById("skippedNum").textContent = skipped;
+  localStorage.setItem("ws_solved", solved);
+  localStorage.setItem("ws_skipped", skipped);
+}
+
+function checkGuess(){
+  const val = document.getElementById("guess").value.trim().toLowerCase();
+  const msg = document.getElementById("msg");
+  if(val === current[0]){
+    msg.textContent = "Correct! 🎉";
+    msg.className = "msg good";
+    solved++;
+    updateScore();
+    setTimeout(nextWord, 900);
+  } else {
+    msg.textContent = "Not quite — try again";
+    msg.className = "msg bad";
+  }
+}
+
+document.getElementById("guess").addEventListener("keydown", (e) => {
+  if(e.key === "Enter") checkGuess();
+});
+
+document.getElementById("skipBtn").addEventListener("click", () => { skipped++; updateScore(); nextWord(); });
+
+updateScore();
+nextWord();
+</script>
+</body>
+</html>
