@@ -112,6 +112,14 @@
     font-family:'Space Grotesk',sans-serif;
   }
   .share-btn:hover{background:rgba(227,168,87,0.24);}
+  .reset-row{text-align:center;padding:8px 24px 0;}
+  .reset-btn{
+    background:none;border:1px solid rgba(244,239,225,0.25);
+    color:var(--cream);opacity:0.55;font-size:0.75rem;
+    padding:5px 14px;border-radius:14px;cursor:pointer;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .reset-btn:hover{opacity:1;border-color:var(--amber);color:var(--amber);}
 </style>
 <script type="application/ld+json">
 {
@@ -141,6 +149,7 @@
     <div class="score-pill black-pill"><span class="num" id="blackWins">0</span><span class="label">Black Wins</span></div>
   </div>
 </div>
+<div class="reset-row"><button class="reset-btn" onclick="resetScore()">&#8635; Reset Score</button></div>
 <main>
   <h1>Checkers</h1>
   <p class="sub">Two players, one screen. Diagonal moves, jump to capture.</p>
@@ -327,6 +336,13 @@ function newGame(){
 
 updateWins();
 newGame();
+function resetScore(){
+  if(!confirm("Reset Checkers wins back to zero for both players?")) return;
+  redWins = 0; blackWins = 0;
+  localStorage.removeItem("ck_red");
+  localStorage.removeItem("ck_black");
+  updateWins();
+}
 </script>
 </body>
 </html>
