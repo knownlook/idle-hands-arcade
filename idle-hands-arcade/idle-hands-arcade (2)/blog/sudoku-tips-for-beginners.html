@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sudoku Tips for Beginners: Solve Without Guessing</title>
+<meta name="description" content="A handful of simple logic techniques that get you through most easy and medium sudoku puzzles without ever guessing.">
+<link rel="canonical" href="https://knownlook.com/blog/sudoku-tips-for-beginners.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231B4332%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 text-anchor=%22middle%22>🔢</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --felt:#1B4332; --cream:#F4EFE1; --ink:#22271F; --amber:#E3A857; --line:rgba(244,239,225,0.14); }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--felt);color:var(--cream);font-family:'Space Grotesk',sans-serif;min-height:100vh;}
+  .top{padding:20px 24px;border-bottom:1px solid var(--line);}
+  .top a{color:var(--cream);opacity:0.7;text-decoration:none;font-size:0.9rem;}
+  article{max-width:640px;margin:0 auto;padding:48px 24px 40px;}
+  .post-tag{
+    display:inline-block;font-size:0.7rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:0.05em;color:var(--amber);margin-bottom:14px;
+  }
+  h1{font-family:'Fraunces',serif;font-size:clamp(1.8rem,5vw,2.4rem);margin:0 0 20px;line-height:1.2;}
+  h2{font-family:'Fraunces',serif;font-size:1.25rem;margin:32px 0 10px;color:var(--amber);}
+  p, li{line-height:1.75;opacity:0.92;}
+  ul, ol{padding-left:22px;}
+  .cta{
+    background:var(--cream);color:var(--ink);border-radius:8px;
+    padding:20px 24px;margin-top:36px;text-align:center;
+  }
+  .cta a{
+    display:inline-block;margin-top:10px;background:var(--felt);color:var(--cream);
+    padding:10px 22px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.9rem;
+  }
+  footer{text-align:center;padding:24px;font-size:0.8rem;opacity:0.55;border-top:1px solid var(--line);margin-top:20px;}
+  footer a{color:var(--cream);opacity:0.8;margin:0 8px;text-decoration:none;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sudoku Tips for Beginners: Solve Without Guessing",
+  "description": "A handful of simple logic techniques that get you through most easy and medium sudoku puzzles without ever guessing.",
+  "url": "https://knownlook.com/blog/sudoku-tips-for-beginners.html",
+  "author": { "@type": "Organization", "name": "Idle Hands Arcade" },
+  "publisher": { "@type": "Organization", "name": "Idle Hands Arcade" }
+}
+</script>
+</head>
+<body>
+<div class="top"><a href="../blog/index.html">&larr; back to blog</a></div>
+<article>
+  <span class="post-tag">Sudoku</span>
+  <h1>Sudoku Tips for Beginners: Solve Without Guessing</h1>
+
+  <p>Guessing feels like the only option when a sudoku grid looks packed with possibilities, but a real sudoku puzzle should never require it. Every properly made puzzle has exactly one solution reachable through logic alone. These are the techniques that get you there.</p>
+
+  <h2>1. Scan rows, columns, and boxes together</h2>
+  <p>Before filling in any cell, check three things at once: what's already in that row, what's already in that column, and what's already in that 3x3 box. A number can only go in a cell if it's missing from all three. This single habit solves a surprising number of cells in an easy puzzle.</p>
+
+  <h2>2. Look for the "only spot" in a box</h2>
+  <p>Instead of asking "what can go in this cell," flip the question: for a given number, is there only one empty cell left in a box where it could possibly go? If a 3x3 box is missing the number 7, and six of the nine cells already have numbers or are blocked by 7s in the matching row/column, the 7 often has just one legal home.</p>
+
+  <h2>3. Use pencil marks for tight spots</h2>
+  <p>When a cell could hold two or three different numbers, lightly note all the candidates rather than guessing one. As you fill in more of the grid, those candidate lists shrink on their own — often down to a single possible number — without you ever having to gamble.</p>
+
+  <h2>4. Work the puzzle in passes, not top to bottom</h2>
+  <p>New solvers often try to fill the grid left to right, row by row. Skilled solvers instead do full passes looking for one specific number at a time — find every place a 1 can go across the whole grid, then every place a 2 can go, and so on. This exposes forced placements much faster.</p>
+
+  <h2>5. Medium and hard puzzles reward patience, not speed</h2>
+  <p>Harder puzzles give you fewer starting numbers on purpose, which means early progress is slower. That's normal — it's not a sign you're missing something obvious. Stick with the scanning and only-spot techniques above, and the grid opens up in bursts rather than steadily.</p>
+
+  <div class="cta">
+    <p style="margin:0;">Ready to put these to work?</p>
+    <a href="../sudoku.html">Play Sudoku Now</a>
+  </div>
+</article>
+<footer>
+  <a href="../index.html">Home</a> · <a href="../about.html">About</a> · <a href="index.html">Blog</a> · <a href="../privacy-policy.html">Privacy Policy</a> · <a href="../contact.html">Contact</a>
+</footer>
+</body>
+</html>
