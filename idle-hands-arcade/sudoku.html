@@ -109,6 +109,14 @@
     font-family:'Space Grotesk',sans-serif;
   }
   .share-btn:hover{background:rgba(227,168,87,0.24);}
+  .reset-row{text-align:center;padding:8px 24px 0;}
+  .reset-btn{
+    background:none;border:1px solid rgba(244,239,225,0.25);
+    color:var(--cream);opacity:0.55;font-size:0.75rem;
+    padding:5px 14px;border-radius:14px;cursor:pointer;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .reset-btn:hover{opacity:1;border-color:var(--amber);color:var(--amber);}
 </style>
 <script type="application/ld+json">
 {
@@ -138,6 +146,7 @@
     <div class="score-pill teal"><span class="num" id="checksNum">0</span><span class="label">Checks</span></div>
   </div>
 </div>
+<div class="reset-row"><button class="reset-btn" onclick="resetScore()">&#8635; Reset Score</button></div>
 <main>
   <h1>Sudoku</h1>
   <p class="sub">Fill every row, column, and 3×3 box with 1–9.</p>
@@ -154,6 +163,7 @@
 
   <div class="row">
     <button class="action" onclick="checkSolution()">Check</button>
+    <button class="action" style="background:transparent;color:var(--cream);border:2px solid var(--cream);box-shadow:none;" onclick="clearAnswers()">Clear My Answers</button>
   </div>
   <div class="msg" id="msg"></div>
 
@@ -327,6 +337,18 @@ function checkSolution(){
 
 updateScore();
 loadPuzzle(0);
+function clearAnswers(){
+  document.querySelectorAll(".cell:not(.given)").forEach(cell => { cell.value = ""; });
+  document.getElementById("msg").textContent = "";
+  alreadyCountedThisPuzzle = false;
+}
+
+function resetScore(){
+  if(!confirm("Reset your Sudoku score back to zero?")) return;
+  solvedCount = 0; checksCount = 0;
+  localStorage.removeItem("su_solved");
+  updateScore();
+}
 </script>
 </body>
 </html>
