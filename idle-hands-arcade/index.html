@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1a1a2e">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Idle Hands Arcade – Free Online Games, No Sign-Up</title>
@@ -90,5 +92,12 @@
 <footer>
   <a href="/">Home</a> · <a href="/about">About</a> · <a href="/blog/">Blog</a> · <a href="/privacy-policy">Privacy Policy</a> · <a href="/contact">Contact</a>
 </footer>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>
