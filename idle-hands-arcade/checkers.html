@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="manifest" href="/manifest.json"> <meta name="theme-color" content="#1a1a2e">  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Play Checkers Online – Free 2-Player Game, No Sign-Up</title>
@@ -344,5 +345,6 @@ function resetScore(){
   updateWins();
 }
 </script>
+<script> if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js'); }); } </script>  
 </body>
 </html>
