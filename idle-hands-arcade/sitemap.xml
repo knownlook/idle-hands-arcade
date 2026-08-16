@@ -70,8 +70,38 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
+ <url>
     <loc>https://knownlook.com/blog/5-minute-brain-breaks-productivity.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://knownlook.com/blog/how-to-play-checkers-rules-for-beginners.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://knownlook.com/blog/sudoku-vs-crossword-brain-benefits.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://knownlook.com/blog/checkers-vs-chess-easier-to-learn.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://knownlook.com/blog/vocabulary-building-word-games.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://knownlook.com/blog/best-puzzle-games-for-seniors.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://knownlook.com/blog/history-of-classic-board-games.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
