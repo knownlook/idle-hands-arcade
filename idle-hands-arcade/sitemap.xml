@@ -6,37 +6,37 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/word-scramble.html</loc>
+    <loc>https://knownlook.com/word-scramble</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/sudoku.html</loc>
+    <loc>https://knownlook.com/sudoku</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/sliding-puzzle.html</loc>
+    <loc>https://knownlook.com/sliding-puzzle</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/checkers.html</loc>
+    <loc>https://knownlook.com/checkers</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/about.html</loc>
+    <loc>https://knownlook.com/about</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/privacy-policy.html</loc>
+    <loc>https://knownlook.com/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/contact.html</loc>
+    <loc>https://knownlook.com/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -46,62 +46,62 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/sudoku-tips-for-beginners.html</loc>
+    <loc>https://knownlook.com/blog/sudoku-tips-for-beginners</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/checkers-strategy-basics.html</loc>
+    <loc>https://knownlook.com/blog/checkers-strategy-basics</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/word-scramble-brain-benefits.html</loc>
+    <loc>https://knownlook.com/blog/word-scramble-brain-benefits</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/sliding-puzzle-solving-strategy.html</loc>
+    <loc>https://knownlook.com/blog/sliding-puzzle-solving-strategy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/best-games-for-work-breaks.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
- <url>
-    <loc>https://knownlook.com/blog/5-minute-brain-breaks-productivity.html</loc>
+    <loc>https://knownlook.com/blog/best-games-for-work-breaks</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/how-to-play-checkers-rules-for-beginners.html</loc>
+    <loc>https://knownlook.com/blog/5-minute-brain-breaks-productivity</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/sudoku-vs-crossword-brain-benefits.html</loc>
+    <loc>https://knownlook.com/blog/how-to-play-checkers-rules-for-beginners</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/checkers-vs-chess-easier-to-learn.html</loc>
+    <loc>https://knownlook.com/blog/sudoku-vs-crossword-brain-benefits</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/vocabulary-building-word-games.html</loc>
+    <loc>https://knownlook.com/blog/checkers-vs-chess-easier-to-learn</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/best-puzzle-games-for-seniors.html</loc>
+    <loc>https://knownlook.com/blog/vocabulary-building-word-games</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://knownlook.com/blog/history-of-classic-board-games.html</loc>
+    <loc>https://knownlook.com/blog/best-puzzle-games-for-seniors</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://knownlook.com/blog/history-of-classic-board-games</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
