@@ -21,14 +21,26 @@
   main{max-width:760px;margin:0 auto;padding:48px 24px 80px;}
   h1{font-family:'Fraunces',serif;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 12px;}
   .intro{opacity:0.8;line-height:1.6;margin-bottom:12px;}
+  .intro a{color:var(--amber);}
   .jump-links{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 40px;}
   .jump-links a{
     background:rgba(227,168,87,0.14);color:var(--amber);
     padding:6px 14px;border-radius:16px;text-decoration:none;
     font-size:0.82rem;font-weight:700;border:1px solid rgba(227,168,87,0.3);
   }
-  h2{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);margin:44px 0 20px;
+  h2{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);margin:44px 0 14px;
      border-bottom:1px solid var(--line);padding-bottom:10px;}
+  .section-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:0 0 26px;}
+  .play-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--amber);color:var(--ink);
+    padding:8px 18px;border-radius:20px;
+    text-decoration:none;font-weight:700;font-size:0.85rem;
+    box-shadow:0 3px 0 rgba(0,0,0,0.18);
+  }
+  .play-btn:hover{transform:translateY(-1px);}
+  .guide-link{font-size:0.82rem;color:var(--cream);opacity:0.7;text-decoration:underline;}
+  .guide-link:hover{opacity:1;}
   .qa{margin-bottom:22px;}
   .qa h3{font-size:1.02rem;margin:0 0 6px;color:var(--cream);}
   .qa p{margin:0;line-height:1.6;opacity:0.88;font-size:0.95rem;}
@@ -53,7 +65,7 @@
 <div class="top"><a href="/">&larr; back to arcade</a></div>
 <main>
   <h1>Game Glossary</h1>
-  <p class="intro">Quick, plain-language definitions for terms you'll run into playing Checkers, Sudoku, Word Scramble, and Sliding Puzzle on Idle Hands Arcade. Jump to a section or scroll through the whole list.</p>
+  <p class="intro">Quick, plain-language definitions for terms you'll run into playing Checkers, Sudoku, Word Scramble, and Sliding Puzzle on <a href="/">Idle Hands Arcade</a>. Jump to a section below, or head back to the <a href="/">homepage</a> to see all four games.</p>
 
   <div class="jump-links">
     <a href="#general">General &amp; Brain Games</a>
@@ -82,6 +94,10 @@
   <div class="qa"><h3>What is replayability?</h3><p>Replayability describes how likely a game is to be played again, often because outcomes, puzzles, or layouts change each time.</p></div>
 
   <h2 id="checkers">Checkers Terms</h2>
+  <div class="section-cta">
+    <a class="play-btn" href="/checkers">🎮 Play Checkers Now</a>
+    <a class="guide-link" href="/blog/checkers-strategy-basics">Read our checkers strategy guide &rarr;</a>
+  </div>
 
   <div class="qa"><h3>What is checkers?</h3><p>Checkers is a two-player strategy game played on the dark squares of an 8x8 board, where pieces move and capture diagonally.</p></div>
   <div class="qa"><h3>What is draughts?</h3><p>Draughts is the British English name for the same game known as checkers in the United States.</p></div>
@@ -98,6 +114,10 @@
   <div class="qa"><h3>What is the endgame in checkers?</h3><p>The endgame is the final phase of a checkers match, typically with few pieces remaining, where precise play often decides the winner.</p></div>
 
   <h2 id="sudoku">Sudoku Terms</h2>
+  <div class="section-cta">
+    <a class="play-btn" href="/sudoku">🎮 Play Sudoku Now</a>
+    <a class="guide-link" href="/blog/sudoku-tips-for-beginners">Read our sudoku tips for beginners &rarr;</a>
+  </div>
 
   <div class="qa"><h3>What is sudoku?</h3><p>Sudoku is a logic-based number puzzle played on a 9x9 grid, solved by filling in digits 1 through 9 without repeating one in any row, column, or box.</p></div>
   <div class="qa"><h3>What is the 9x9 grid in sudoku?</h3><p>The 9x9 grid is the full sudoku board, divided into nine rows, nine columns, and nine 3x3 boxes.</p></div>
@@ -114,6 +134,10 @@
   <div class="qa"><h3>What is a hard sudoku puzzle?</h3><p>A hard sudoku puzzle has fewer given numbers and usually requires more advanced logic techniques to solve.</p></div>
 
   <h2 id="word-scramble">Word Scramble Terms</h2>
+  <div class="section-cta">
+    <a class="play-btn" href="/word-scramble">🎮 Play Word Scramble Now</a>
+    <a class="guide-link" href="/blog/word-scramble-brain-benefits">Why word scramble is good for your brain &rarr;</a>
+  </div>
 
   <div class="qa"><h3>What is a word scramble?</h3><p>A word scramble is a puzzle where the letters of a word are shuffled out of order, and the goal is to rearrange them back into the original word.</p></div>
   <div class="qa"><h3>What is an anagram?</h3><p>An anagram is a word or phrase formed by rearranging the letters of another word or phrase using all the original letters.</p></div>
@@ -126,6 +150,10 @@
   <div class="qa"><h3>What are scrambled letters?</h3><p>Scrambled letters are the individual letters of a word displayed in randomized, non-word order for the player to rearrange.</p></div>
 
   <h2 id="sliding-puzzle">Sliding Puzzle Terms</h2>
+  <div class="section-cta">
+    <a class="play-btn" href="/sliding-puzzle">🎮 Play Sliding Puzzle Now</a>
+    <a class="guide-link" href="/blog/sliding-puzzle-solving-strategy">Solve the 15 puzzle in fewer moves &rarr;</a>
+  </div>
 
   <div class="qa"><h3>What is a sliding puzzle?</h3><p>A sliding puzzle is a tile-based puzzle where numbered or pictured tiles are moved into an empty space to reach a target arrangement.</p></div>
   <div class="qa"><h3>What is the 15 puzzle?</h3><p>The 15 puzzle is a classic sliding puzzle with fifteen numbered tiles in a 4x4 grid, solved by arranging them in numerical order.</p></div>
@@ -137,7 +165,7 @@
   <div class="qa"><h3>What is spatial reasoning?</h3><p>Spatial reasoning is the mental ability to visualize and manipulate positions and movement, heavily used when planning sliding puzzle moves.</p></div>
   <div class="qa"><h3>What is a best score in a sliding puzzle?</h3><p>A best score is the fewest number of moves a player has used to solve the puzzle, typically saved for comparison against future attempts.</p></div>
 
-  <p style="text-align:left;opacity:0.6;font-size:0.85rem;margin-top:48px;"><a class="back-top" href="#general">&uarr; back to top</a></p>
+  <p style="text-align:left;opacity:0.6;font-size:0.85rem;margin-top:48px;"><a class="back-top" href="#general">&uarr; back to top</a> &nbsp;·&nbsp; <a class="back-top" href="/">&uarr; back to homepage</a></p>
 </main>
 <footer>
   <a href="/">Home</a> · <a href="/about">About</a> · <a href="/blog/">Blog</a> · <a href="/privacy-policy">Privacy Policy</a> · <a href="/contact">Contact</a>
