@@ -45,19 +45,32 @@
   <p>Guessing feels like the only option when a sudoku grid looks packed with possibilities, but a real sudoku puzzle should never require it. Every properly made puzzle has exactly one solution reachable through logic alone. These are the techniques that get you there.</p>
 
   <h2>1. Scan rows, columns, and boxes together</h2>
-  <p>Before filling in any cell, check three things at once: what's already in that row, what's already in that column, and what's already in that 3x3 box. A number can only go in a cell if it's missing from all three. This single habit solves a surprising number of cells in an easy puzzle.</p>
+  <p>Before filling in any cell, check three things at once: what's already in that row, what's already in that column, and what's already in that 3x3 box. A number can only go in a cell if it's missing from all three. For example, if a cell's row already has a 4, its column has a 6, and its box has a 9, none of those numbers can go there, no matter how open the cell looks. This single habit solves a surprising number of cells in an easy puzzle.</p>
 
   <h2>2. Look for the "only spot" in a box</h2>
-  <p>Instead of asking "what can go in this cell," flip the question: for a given number, is there only one empty cell left in a box where it could possibly go? If a 3x3 box is missing the number 7, and six of the nine cells already have numbers or are blocked by 7s in the matching row/column, the 7 often has just one legal home.</p>
+  <p>Instead of asking "what can go in this cell," flip the question: for a given number, is there only one empty cell left in a box where it could possibly go? If a 3x3 box is missing the number 7, and two of the three remaining rows already contain a 7 elsewhere in the grid, that rules out every empty cell in those rows, sometimes leaving exactly one legal home for the 7.</p>
 
   <h2>3. Use pencil marks for tight spots</h2>
-  <p>When a cell could hold two or three different numbers, lightly note all the candidates rather than guessing one. As you fill in more of the grid, those candidate lists shrink on their own — often down to a single possible number — without you ever having to gamble.</p>
+  <p>When a cell could hold two or three different numbers, lightly note all the candidates rather than guessing one. As you fill in more of the grid, those candidate lists shrink on their own, often down to a single possible number, without you ever having to gamble. It looks messy on paper, but this is genuinely how most solvers work through medium and hard puzzles, not by holding every possibility in their head.</p>
 
   <h2>4. Work the puzzle in passes, not top to bottom</h2>
-  <p>New solvers often try to fill the grid left to right, row by row. Skilled solvers instead do full passes looking for one specific number at a time — find every place a 1 can go across the whole grid, then every place a 2 can go, and so on. This exposes forced placements much faster.</p>
+  <p>New solvers often try to fill the grid left to right, row by row. Skilled solvers instead do full passes looking for one specific number at a time, find every place a 1 can go across the whole grid, then every place a 2 can go, and so on. This exposes forced placements much faster than working cell by cell.</p>
 
   <h2>5. Medium and hard puzzles reward patience, not speed</h2>
-  <p>Harder puzzles give you fewer starting numbers on purpose, which means early progress is slower. That's normal — it's not a sign you're missing something obvious. Stick with the scanning and only-spot techniques above, and the grid opens up in bursts rather than steadily.</p>
+  <p>Harder puzzles give you fewer starting numbers on purpose, which means early progress is slower. That's normal, it's not a sign you're missing something obvious. Stick with the scanning and only-spot techniques above, and the grid opens up in bursts rather than steadily.</p>
+
+  <h2>Common Mistakes That Slow Beginners Down</h2>
+  <ul>
+    <li><strong>Guessing when stuck.</strong> Instead of pencil-marking possibilities and moving to another part of the grid, it's tempting to just guess and see what happens. One wrong guess can quietly break the whole puzzle, and you won't know until you're stuck much later.</li>
+    <li><strong>Only looking at one cell at a time.</strong> New solvers tend to stare at a single empty cell and ask "what could go here?" instead of scanning the whole row, column, and box together. The fastest progress comes from thinking about the whole grid, not one square.</li>
+    <li><strong>Erasing pencil marks too early.</strong> If you cross out a candidate number before you've actually proven it's impossible, you can accidentally eliminate the real answer.</li>
+    <li><strong>Expecting hard puzzles to feel like easy ones.</strong> A harder puzzle gives you fewer starting numbers on purpose. Slower progress isn't a sign you're doing something wrong, it's just the nature of the puzzle.</li>
+  </ul>
+
+  <h2>Quick Answers</h2>
+  <p><strong>How long should a beginner sudoku puzzle take?</strong><br>Ten to twenty minutes for an easy grid is completely normal when you're solving with logic instead of guessing. Speed comes with repetition, not talent.</p>
+  <p><strong>Is it okay to use pencil marks on every puzzle?</strong><br>Yes. Past the easiest difficulty, most solvers keep some form of pencil marks going the whole time. It's not cheating, it's just organized thinking.</p>
+  <p><strong>What's the difference between sudoku and crossword puzzles for your brain?</strong><br>They exercise different mental muscles. Sudoku leans on logic and pattern recognition, while crosswords lean on vocabulary and recall. We dig into this more in <a href="../blog/sudoku-vs-crossword-brain-benefits.html" style="color:var(--amber);">Sudoku vs Crossword: Which Is Better for Your Brain?</a></p>
 
   <div class="cta">
     <p style="margin:0;">Ready to put these to work?</p>
